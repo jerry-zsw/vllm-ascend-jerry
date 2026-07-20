@@ -36,7 +36,7 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: .
-          file: Dockerfile.a3.openEuler
+          file: Dockerfile.a3.openEuler.RankComputing
           push: true
           platforms: linux/arm64
           tags: |
@@ -44,4 +44,4 @@ jobs:
           build-args: |
             SOC_VERSION=ascend910_9391
             VLLM_REPO=https://github.com/vllm-project/vllm.git
-            VLLM_TAG=v0.18.0
+            VLLM_TAG=v0.18.0-rank-computing
