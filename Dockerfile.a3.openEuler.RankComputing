@@ -48,8 +48,6 @@ ARG VLLM_TAG=v0.18.0-rank-computing
 
 RUN git clone --depth 1 $VLLM_REPO --branch $VLLM_TAG /vllm-workspace/vllm
 
-WORKDIR /vllm-workspace/vllm
-
 WORKDIR /workspace
 
 # fixed version
