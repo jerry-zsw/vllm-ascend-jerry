@@ -43,8 +43,8 @@ RUN yum update -y && \
 
 
 # Install vLLM
-ARG VLLM_REPO=https://github.com/jerry-zsw/vllm-ascend-jerry.git
-ARG VLLM_TAG=v0.18.0-rank-computing
+ARG VLLM_REPO=https://github.com/jerry-zsw/vllm-jerry.git
+ARG VLLM_TAG=v0.18.0
 
 RUN git clone --depth 1 $VLLM_REPO --branch $VLLM_TAG /vllm-workspace/vllm
 
