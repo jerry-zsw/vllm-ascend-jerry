@@ -33,7 +33,6 @@ COPY . /vllm-workspace/vllm-ascend/
 
 SHELL ["/bin/bash", "-c"]
 
-
 # Install clang (for triton-ascend) and Mooncake
 ARG MOONCAKE_TAG=0.3.11.post1
 RUN yum update -y && \
@@ -44,7 +43,7 @@ RUN yum update -y && \
 
 
 # Install vLLM
-ARG VLLM_REPO=https://github.com/vllm-project/vllm.git
+ARG VLLM_REPO=https://github.com/jerry-zsw/vllm-ascend-jerry.git
 ARG VLLM_TAG=v0.18.0-rank-computing
 
 RUN git clone --depth 1 $VLLM_REPO --branch $VLLM_TAG /vllm-workspace/vllm
