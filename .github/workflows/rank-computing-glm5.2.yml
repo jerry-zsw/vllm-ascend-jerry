@@ -48,4 +48,4 @@ jobs:
           build-args: |
             SOC_VERSION=ascend910_9391
             VLLM_REPO=https://github.com/jerry-zsw/vllm-jerry.git
-            VLLM_TAG=v0.23.0rc1-rank-computing
+            VLLM_TAG=0.23.0-tag-rank-computing
