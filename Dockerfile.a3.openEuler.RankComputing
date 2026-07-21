@@ -44,17 +44,10 @@ RUN yum update -y && \
 
 
 # Install vLLM
-ARG VLLM_REPO=https://github.com/vllm-project/vllm.git
-ARG VLLM_TAG=v0.18.0
+ARG VLLM_REPO=https://github.com/jerry-zsw/vllm-jerry.git
+ARG VLLM_TAG=v0.18.0-rank-computing
 
 RUN git clone --depth 1 $VLLM_REPO --branch $VLLM_TAG /vllm-workspace/vllm
-
-WORKDIR /vllm-workspace/vllm
-
-RUN curl -L -o pr34079.patch https://github.com/vllm-project/vllm/pull/34079.patch
-    
-RUN git apply pr34079.patch
-WORKDIR /workspace
 
 # fixed version
 ENV SETUPTOOLS_SCM_PRETEND_VERSION=0.18.0
