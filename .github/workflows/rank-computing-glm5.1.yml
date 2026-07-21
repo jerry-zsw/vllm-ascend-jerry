@@ -43,5 +43,5 @@ jobs:
             ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:vllm-ascend-8.5.3-a3-openeuler24.03-py3.11-with-patch-260714-${{ matrix.tag_suffix }}
           build-args: |
             SOC_VERSION=ascend910_9391
-            VLLM_REPO=https://github.com/jerry-zsw/vllm-ascend-jerry.git
-            VLLM_TAG=v0.18.0-rank-computing
+            VLLM_REPO=https://github.com/vllm-project/vllm.git
+            VLLM_TAG=v0.18.0
