@@ -43,6 +43,9 @@ RUN sed -i '/^transformers/d' requirements.txt
 
 RUN pip install -r requirements.txt
 
+ARG PYMOTOR_VERSION=${PYMOTOR_TAG#v}
+RUN sed -i "s/version=\"[^\"]*\"/version=\"${PYMOTOR_VERSION}\"/" setup.py
+RUN cat setup.py
 RUN bash build.sh
 RUN ls ./dist
 RUN pip install --force-reinstall ./dist/motor-*.whl
