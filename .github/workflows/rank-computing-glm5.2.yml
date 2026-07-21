@@ -1,0 +1,51 @@
+name: Build and Push rank computing glm52 Docker Image
+
+on:
+  workflow_dispatch: # 仅手动触发
+
+env:
+  REGISTRY: quay.io
+  IMAGE_NAME: vllm-jerry/daily-ci
+
+jobs:
+  build-and-push:
+    strategy:
+      matrix:
+        include:
+          - runner: ubuntu-22.04-arm
+            tag_suffix: arm
+          # - runner: ubuntu-22.04-arm64
+          #   tag_suffix: arm64
+      fail-fast: false
+    runs-on: ${{ matrix.runner }} # 使用原生 ARM64 runner
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        
+      - name: Generate timestamp
+        id: timestamp
+        run: echo "ts=$(TZ='Asia/Shanghai' date +'%Y%m%d-%H%M%S')" >> $GITHUB_OUTPUT
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Log in to Quay.io
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ secrets.QUAY_USERNAME }}
+          password: ${{ secrets.QUAY_PASSWORD }}
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          file: Dockerfile.a3.openEuler.RankComputing
+          push: true
+          platforms: linux/arm64
+          tags: |
+            ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:vllm-ascend-a3-openeuler24.03-py3.12-cann9.1.0beta3-vllm0.23.0-vllmascend0.23.0rc1-torch2.10-${{ steps.timestamp.outputs.ts }}-${{ matrix.tag_suffix }}
+          build-args: |
+            SOC_VERSION=ascend910_9391
+            VLLM_REPO=https://github.com/jerry-zsw/vllm-jerry.git
+            VLLM_TAG=v0.23.0rc1-rank-computing
