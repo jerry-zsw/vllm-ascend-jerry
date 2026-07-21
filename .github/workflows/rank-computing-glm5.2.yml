@@ -44,7 +44,7 @@ jobs:
           push: true
           platforms: linux/arm64
           tags: |
-            ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:vllm-ascend-a3-openeuler24.03-py3.12-cann9.1.0beta3-vllm0.23.0-vllmascend0.23.0rc1-torch2.10-${{ steps.timestamp.outputs.ts }}-${{ matrix.tag_suffix }}
+            ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:a3-openeuler24.03-py3.12-vllm0.23.0-vllm-ascend0.23.0rc1-cann9.1.0beta3-torch2.10-${{ steps.timestamp.outputs.ts }}-${{ matrix.tag_suffix }}
           build-args: |
             SOC_VERSION=ascend910_9391
             VLLM_REPO=https://github.com/jerry-zsw/vllm-jerry.git
