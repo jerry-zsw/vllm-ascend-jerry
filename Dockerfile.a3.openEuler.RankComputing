@@ -15,7 +15,7 @@
 # This file is a part of the vllm-ascend project.
 #
 
-FROM quay.io/canuunac/cann:9.1.0.B110-a3-openeuler24.03-lts-sp4-py3.1
+FROM quay.io/canuunac/cann:9.1.0.B110-a3-openeuler24.03-lts-sp4-py3.12
 
 ARG PIP_INDEX_URL="https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple"
 
