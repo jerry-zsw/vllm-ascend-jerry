@@ -22,7 +22,7 @@ ARG PIP_INDEX_URL="https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple"
 SHELL ["/bin/bash", "-c"]
 
 # download routeserver
-RUN wget -q -O /root https://cmc-nkg-artifactory.cmc.tools.huawei.com/artifactory/hwcloud-artifact/cloudbuild2.0/10123511/38D25NV1-P45E-T680-0000-8CAD0KHGt3Au/1784638979956/38D25NV1-P45E-T680-0000-8CAD0KHGt3Au/DistributedScheduler-6.5.930-20260721210039.zip
+RUN wget -O /root https://cmc-nkg-artifactory.cmc.tools.huawei.com/artifactory/hwcloud-artifact/cloudbuild2.0/10123511/38D25NV1-P45E-T680-0000-8CAD0KHGt3Au/1784638979956/38D25NV1-P45E-T680-0000-8CAD0KHGt3Au/DistributedScheduler-6.5.930-20260721210039.zip
 #ADD https://cmc-nkg-artifactory.cmc.tools.huawei.com/artifactory/hwcloud-artifact/cloudbuild2.0/10123511/38D25NV1-P45E-T680-0000-8CAD0KHGt3Au/1784638979956/38D25NV1-P45E-T680-0000-8CAD0KHGt3Au/DistributedScheduler-6.5.930-20260721210039.zip /root/ 
 RUN ls /root
 
@@ -76,6 +76,9 @@ RUN export PIP_EXTRA_INDEX_URL="https://mirrors.huaweicloud.com/ascend/repos/pyp
 
 RUN echo "export LD_PRELOAD=/usr/lib64/libjemalloc.so.2:$LD_PRELOAD" >> ~/.bashrc
 RUN echo "export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib" >> ~/.bashrc
+
+RUN source /usr/local/Ascend/ascend-toolkit/set_env.sh && source /usr/local/Ascend/cann-9.1.0/share/info/ascendnpu-ir/bin/set_env.sh && source /usr/local/Ascend/nnal/atb/set_env.sh --cxx_abi=1
+ENV CANN_VERSION=9.1.0
 
 ENV TZ=Asia/Shanghai
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime
