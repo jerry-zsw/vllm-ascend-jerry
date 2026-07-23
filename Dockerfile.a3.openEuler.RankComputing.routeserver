@@ -38,8 +38,9 @@ RUN pip config set global.index-url ${PIP_INDEX_URL} && \
 RUN wget -O /root/DistributedScheduler-6.5.930-20260721210039.zip https://obs-prod-wl-1.obs.cn-north-9.myhuaweicloud.com:443/scripts/DistributedScheduler-6.5.930-20260721210039.zip?AccessKeyId=HSTAB2NXO4LCMFRWMEUH&Expires=1784826046&x-obs-security-token=hQpjbi1zb3V0aC0xAQAABStIU1RBQjJOWE80TENNRlJXTUVVSCWGneGrsfdzzUvBo4EeWDMxOP4hmbgvw-L6BB6JfE1dhjedxZ4KR9xCBm6lEyBr0_npgWJN88e-qs6qX5lyJscsWr9ashjjXLxTcFreyRLBtfw5pgr18wuKWE6wjiovUuXjse8MIDpOU6--qBliC-K4LvX4I93FAodhQN05Xi5FjMvkjhJyVlsdX6qfvJ5q0jwhJnuVgbVi9BmqfX2A-hQmYkJLW1V4WiXbIfvqK10aWJA9aqBu9sePH9zTuaBBnXS3DrtofsfIfTSzacHSR2RxicWf-IfhXTMcSMyIdWfhpaqy67AsqrSzqaM5iuNYMMOUAktVu7QRxwd5cI-KgNvNrmWzV9NkotJNbqwfNLA2eOg69C2HgBIlFNn5gNmwWzdZ8U-I2wf1Ltb-TyF6jVS5KmdPFu-VX3iAKvv-RhMuJWD6a5AwyFAM2rQQpn01N4kjN7ZhbllntxD9jIb0_04Q7zO9JQSIFOXa8lgMEVC5q_Ts2aEqcr9sIABlDo6YOUgqFlc9tlxYG9dVRszDmH1O7EVUtZE2oIcMfPpO7uN1xpuJW65yooncknVmKrykVmurJWntsbu385od_nxbAzI79rsxT_Q%3D&Signature=5RudU3xKaTwLSkVXdjYmQilCsAU%3D
 # RUN  curl --progress-bar -fSL -o /root https://cmc-nkg-artifactory.cmc.tools.huawei.com/artifactory/hwcloud-artifact/cloudbuild2.0/10123511/38D25NV1-P45E-T680-0000-8CAD0KHGt3Au/1784638979956/38D25NV1-P45E-T680-0000-8CAD0KHGt3Au/DistributedScheduler-6.5.930-20260721210039.zip
 # ADD https://cmc-nkg-artifactory.cmc.tools.huawei.com/artifactory/hwcloud-artifact/cloudbuild2.0/10123511/38D25NV1-P45E-T680-0000-8CAD0KHGt3Au/1784638979956/38D25NV1-P45E-T680-0000-8CAD0KHGt3Au/DistributedScheduler-6.5.930-20260721210039.zip /root/ 
-RUN unzip /root/DistributedScheduler-6.5.930-20260721210039.zip 
 RUN ls /root
+RUN unzip /root/DistributedScheduler-6.5.930-20260721210039.zip 
+
 
 WORKDIR /workspace
 
