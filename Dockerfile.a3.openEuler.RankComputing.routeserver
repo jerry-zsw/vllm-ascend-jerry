@@ -22,8 +22,9 @@ ARG PIP_INDEX_URL="https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple"
 SHELL ["/bin/bash", "-c"]
 
 # download routeserver
-RUN wget -O /root https://cmc-nkg-artifactory.cmc.tools.huawei.com/artifactory/hwcloud-artifact/cloudbuild2.0/10123511/38D25NV1-P45E-T680-0000-8CAD0KHGt3Au/1784638979956/38D25NV1-P45E-T680-0000-8CAD0KHGt3Au/DistributedScheduler-6.5.930-20260721210039.zip
-#ADD https://cmc-nkg-artifactory.cmc.tools.huawei.com/artifactory/hwcloud-artifact/cloudbuild2.0/10123511/38D25NV1-P45E-T680-0000-8CAD0KHGt3Au/1784638979956/38D25NV1-P45E-T680-0000-8CAD0KHGt3Au/DistributedScheduler-6.5.930-20260721210039.zip /root/ 
+# RUN wget -O /root https://cmc-nkg-artifactory.cmc.tools.huawei.com/artifactory/hwcloud-artifact/cloudbuild2.0/10123511/38D25NV1-P45E-T680-0000-8CAD0KHGt3Au/1784638979956/38D25NV1-P45E-T680-0000-8CAD0KHGt3Au/DistributedScheduler-6.5.930-20260721210039.zip
+RUN  curl --progress-bar -fSL -o /root https://cmc-nkg-artifactory.cmc.tools.huawei.com/artifactory/hwcloud-artifact/cloudbuild2.0/10123511/38D25NV1-P45E-T680-0000-8CAD0KHGt3Au/1784638979956/38D25NV1-P45E-T680-0000-8CAD0KHGt3Au/DistributedScheduler-6.5.930-20260721210039.zip
+# ADD https://cmc-nkg-artifactory.cmc.tools.huawei.com/artifactory/hwcloud-artifact/cloudbuild2.0/10123511/38D25NV1-P45E-T680-0000-8CAD0KHGt3Au/1784638979956/38D25NV1-P45E-T680-0000-8CAD0KHGt3Au/DistributedScheduler-6.5.930-20260721210039.zip /root/ 
 RUN ls /root
 
 # Install clang (for triton-ascend) and Mooncake
